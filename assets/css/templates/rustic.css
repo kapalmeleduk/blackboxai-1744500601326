@@ -1,0 +1,310 @@
+/* Rustic Theme Variables */
+.template-rustic {
+    --primary-color: #8B4513;
+    --secondary-color: #DEB887;
+    --accent-color: #D2691E;
+    --text-color: #3E2723;
+    --heading-color: #5D4037;
+    --bg-color: #FDF5E6;
+    --border-color: #BC8F8F;
+}
+
+/* Hero Section */
+.rustic-hero {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(59, 29, 15, 0.5), rgba(59, 29, 15, 0.7));
+}
+
+.rustic-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: url('../images/wood-texture.png') repeat-x;
+    opacity: 0.1;
+}
+
+/* Typography */
+.rustic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    line-height: 1.2;
+    color: var(--heading-color);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.rustic-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--accent-color);
+}
+
+/* Decorative Elements */
+.rustic-frame {
+    border: 2px solid var(--border-color);
+    padding: 2rem;
+    position: relative;
+}
+
+.rustic-frame::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid var(--accent-color);
+    opacity: 0.5;
+}
+
+.rustic-divider {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.rustic-divider::before,
+.rustic-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.rustic-divider-icon {
+    margin: 0 1rem;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+/* Sections */
+.rustic-section {
+    padding: 5rem 0;
+    position: relative;
+    background-color: var(--bg-color);
+}
+
+.rustic-section-dark {
+    background-color: #F5E6D3;
+}
+
+/* Cards */
+.rustic-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
+    position: relative;
+}
+
+.rustic-card::after {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px dashed var(--border-color);
+    pointer-events: none;
+}
+
+/* Couple Section */
+.rustic-couple-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.2);
+    margin: 0 auto 2rem;
+    position: relative;
+}
+
+.rustic-couple-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+}
+
+.rustic-couple-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+
+/* Event Details */
+.rustic-event-details {
+    background: rgba(255,255,255,0.95);
+    padding: 3rem;
+    position: relative;
+}
+
+.rustic-event-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+}
+
+/* Gallery */
+.rustic-gallery-item {
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    background: white;
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.1);
+}
+
+.rustic-gallery-item img {
+    transition: transform 0.5s ease;
+}
+
+.rustic-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* RSVP Form */
+.rustic-form {
+    background: white;
+    padding: 3rem;
+    border: 2px solid var(--border-color);
+    position: relative;
+}
+
+.rustic-input {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    background: rgba(255,255,255,0.9);
+    transition: all 0.3s ease;
+}
+
+.rustic-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.1);
+}
+
+.rustic-button {
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.rustic-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.rustic-button:hover::before {
+    left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rustic-title {
+        font-size: 2.5rem;
+    }
+
+    .rustic-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .rustic-section {
+        padding: 3rem 0;
+    }
+
+    .rustic-event-details {
+        padding: 2rem;
+    }
+
+    .rustic-form {
+        padding: 2rem;
+    }
+}
+
+/* Animations */
+.rustic-fade-in {
+    animation: rusticFadeIn 1s ease-out forwards;
+}
+
+.rustic-slide-up {
+    animation: rusticSlideUp 1s ease-out forwards;
+}
+
+@keyframes rusticFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes rusticSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Texture Overlays */
+.rustic-texture {
+    position: relative;
+}
+
+.rustic-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../images/paper-texture.png') repeat;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* Custom Scrollbar */
+.template-rustic ::-webkit-scrollbar {
+    width: 12px;
+}
+
+.template-rustic ::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+.template-rustic ::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 6px;
+}
+
+.template-rustic ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
