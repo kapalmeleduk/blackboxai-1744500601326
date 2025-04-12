@@ -1,0 +1,245 @@
+/* Main Styles */
+.template-elegant {
+    --primary-color: #FF69B4;
+    --secondary-color: #FFC0CB;
+    --text-color: #333333;
+    --accent-color: #FFB6C1;
+}
+
+.template-rustic {
+    --primary-color: #8B4513;
+    --secondary-color: #DEB887;
+    --text-color: #3E2723;
+    --accent-color: #D2691E;
+}
+
+.template-minimalist {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f5f5f5;
+    --text-color: #333333;
+    --accent-color: #666666;
+}
+
+/* Template Specific Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Common Template Styles */
+.wedding-cover {
+    min-height: 100vh;
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.couple-names {
+    animation: slideUp 1s ease-out;
+}
+
+.wedding-details {
+    animation: slideUp 1.2s ease-out 0.3s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Elegant Template Specific */
+.elegant-ornament {
+    background-image: url('../images/elegant-border.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 200px;
+    height: 50px;
+    margin: 20px auto;
+}
+
+.elegant-divider {
+    width: 100px;
+    height: 2px;
+    background: var(--primary-color);
+    margin: 20px auto;
+}
+
+/* Rustic Template Specific */
+.rustic-frame {
+    border: 2px solid var(--secondary-color);
+    padding: 20px;
+    position: relative;
+}
+
+.rustic-frame::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid var(--accent-color);
+}
+
+/* Minimalist Template Specific */
+.template-minimalist .wedding-cover {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+}
+
+.template-minimalist .couple-names {
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+}
+
+.template-minimalist .countdown-timer {
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+}
+
+.template-minimalist .gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.template-minimalist .gallery-item img {
+    transition: transform 0.6s ease;
+}
+
+.template-minimalist .gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* RSVP Form Styles */
+.rsvp-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Countdown Timer */
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.countdown-item {
+    text-align: center;
+    min-width: 80px;
+}
+
+.countdown-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.countdown-label {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+/* Form Elements */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .countdown-timer {
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .couple-names {
+        font-size: 2.5rem;
+    }
+
+    .wedding-details {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+.slide-up {
+    animation: slideUp 1s ease-out;
+}
+
+.scale-in {
+    animation: scaleIn 1s ease-out;
+}
+
+/* Utility Classes */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
