@@ -24,10 +24,10 @@
                    class="inline-block bg-gradient-to-r from-pink-500 to-purple-600 text-white font-semibold px-8 py-4 rounded-full transition duration-300 transform hover:scale-105 hover:shadow-lg">
                     <i class="fas fa-magic mr-2"></i> Buat Undangan Sekarang
                 </a>
-                <a href="#demo" 
-                   class="inline-block bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full transition duration-300 hover:bg-white/30">
-                    <i class="fas fa-play mr-2"></i> Lihat Demo
-                </a>
+                <button onclick="openLoginModal()" 
+                        class="inline-block bg-white/20 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-full transition duration-300 hover:bg-white/30">
+                    <i class="fas fa-user mr-2"></i> Login
+                </button>
             </div>
         </div>
     </div>
@@ -319,6 +319,51 @@
     </div>
 </section>
 
+<!-- Login Modal -->
+<div id="loginModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="bg-white rounded-2xl shadow-2xl w-96 p-8 relative">
+            <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-playfair font-bold gradient-text">Login</h3>
+                <p class="text-gray-600">Masuk ke akun Anda</p>
+            </div>
+            
+            <form action="login.php" method="POST" class="space-y-6">
+                <div class="form-group">
+                    <input type="email" name="email" class="form-input" placeholder=" " required>
+                    <label class="form-label">Email</label>
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" name="password" class="form-input" placeholder=" " required>
+                    <label class="form-label">Password</label>
+                </div>
+                
+                <div class="flex items-center justify-between text-sm">
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="remember">
+                        <span>Ingat saya</span>
+                    </label>
+                    <a href="#" class="text-pink-500 hover:text-pink-600">Lupa password?</a>
+                </div>
+                
+                <button type="submit" class="form-submit w-full">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Login
+                </button>
+                
+                <div class="text-center text-sm text-gray-600">
+                    Belum punya akun? 
+                    <a href="register.php" class="text-pink-500 hover:text-pink-600">Daftar sekarang</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <!-- Preview Modal -->
 <div id="previewModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
     <div class="absolute inset-0 flex items-center justify-center p-4">
@@ -374,6 +419,26 @@
     }
 }
 </style>
+
+<!-- Login and Preview Scripts -->
+<script>
+function openLoginModal() {
+    document.getElementById('loginModal').classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLoginModal() {
+    document.getElementById('loginModal').classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.getElementById('loginModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeLoginModal();
+    }
+});
+</script>
 
 <!-- Preview Script -->
 <script>
