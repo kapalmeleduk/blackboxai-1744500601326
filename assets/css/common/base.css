@@ -1,67 +1,201 @@
-/* Reset & Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Base Styles with Enhanced Colors and Effects */
+:root {
+    --primary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff758c 100%);
+    --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --accent-gradient: linear-gradient(135deg, #ffd3a5 0%, #fd6585 100%);
+    --success-gradient: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);
+    
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
+    
+    --border-radius-sm: 0.375rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+    --border-radius-xl: 1.5rem;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: #333;
+/* Modern Card Styles */
+.card {
+    background: white;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Glass Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--border-radius-md);
+}
+
+/* Enhanced Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.35);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.45);
+}
+
+.btn-secondary {
+    background: var(--secondary-gradient);
+    color: white;
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.35);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 172, 254, 0.45);
+}
+
+/* Input Fields */
+.input-field {
+    border: 2px solid #e2e8f0;
+    border-radius: var(--border-radius-md);
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-field:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.25);
+    outline: none;
+}
+
+/* Section Styles */
+.section {
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-gradient {
+    background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+}
+
+/* Decorative Elements */
+.decorative-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.decorative-blob {
+    position: absolute;
+    background: var(--primary-gradient);
+    filter: blur(70px);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Typography Enhancements */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     line-height: 1.2;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+.heading-xl {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
-/* Common Layout */
-.wedding-cover {
-    min-height: 100vh;
-    position: relative;
+.heading-lg {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
-.section {
-    padding: 5rem 0;
-}
-
+/* Container */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* Common Typography */
-.text-center {
-    text-align: center;
+/* Grid System */
+.grid {
+    display: grid;
+    gap: 2rem;
 }
 
-.font-playfair {
-    font-family: 'Playfair Display', serif;
+.grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
 }
 
-.font-montserrat {
-    font-family: 'Montserrat', sans-serif;
+.grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
 }
 
-/* Responsive Base */
+.grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
 @media (max-width: 768px) {
-    .section {
-        padding: 3rem 0;
+    .grid-cols-2,
+    .grid-cols-3,
+    .grid-cols-4 {
+        grid-template-columns: 1fr;
     }
     
-    h1 {
+    .heading-xl {
         font-size: 2.5rem;
     }
     
-    h2 {
+    .heading-lg {
         font-size: 2rem;
     }
+}
+
+/* Utility Classes */
+.z-1 { z-index: 1; }
+.relative { position: relative; }
+.overflow-hidden { overflow: hidden; }
+
+/* Enhanced Focus Styles */
+*:focus-visible {
+    outline: 2px solid #4facfe;
+    outline-offset: 2px;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection Style */
+::selection {
+    background: rgba(79, 172, 254, 0.2);
 }
